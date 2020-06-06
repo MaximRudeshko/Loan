@@ -974,6 +974,8 @@ function () {
   _createClass(Slider, [{
     key: "showSlides",
     value: function showSlides(n) {
+      var _this = this;
+
       if (n > this.slides.length) {
         this.currentSlideIndex = 1;
       }
@@ -981,6 +983,20 @@ function () {
       if (n < 1) {
         this.currentSlideIndex = this.slides.length;
       }
+
+      try {
+        this.hansonBlock.style.opacity = 0;
+
+        if (n === 3) {
+          setTimeout(function () {
+            _this.hansonBlock.style.opacity = 1;
+
+            _this.hansonBlock.classList.add('animated', 'slideInUp');
+          }, 3000);
+        } else {
+          this.hansonBlock.classList.remove('slideInUp');
+        }
+      } catch (e) {}
 
       this.slides.forEach(function (item) {
         item.style.display = 'none';
@@ -995,17 +1011,21 @@ function () {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
+
+      try {
+        this.hansonBlock = document.querySelector('.hanson');
+      } catch (error) {}
 
       this.btns.forEach(function (item) {
         item.addEventListener('click', function (e) {
-          _this.plusSlide(1);
+          _this2.plusSlide(1);
         });
         item.parentNode.previousElementSibling.addEventListener('click', function (e) {
           e.preventDefault();
-          _this.currentSlideIndex = 1;
+          _this2.currentSlideIndex = 1;
 
-          _this.showSlides(_this.currentSlideIndex);
+          _this2.showSlides(_this2.currentSlideIndex);
         });
       });
       this.showSlides(this.currentSlideIndex);
