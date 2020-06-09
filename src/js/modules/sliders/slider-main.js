@@ -26,14 +26,16 @@ export default class MainSlider extends Slider{
         } catch (e){}
 
         this.slides.forEach(item => {
-            item.style.display = 'none'
+            item.style.display = 'none';
+            item.classList.add('animated', 'fadeIn');
         });
 
-        this.slides[this.currentSlideIndex - 1].style.display = 'block'
+        this.slides[this.currentSlideIndex - 1].style.display = 'block';
     };
 
     plusSlide(n){
         this.showSlides(this.currentSlideIndex += n);
+
     };
 
     render(){
