@@ -2,6 +2,7 @@ import MainSlider from "./modules/sliders/slider-main";
 import SliderMini from './modules/sliders/slider-mini';
 import Player from "./modules/player";
 import Difference from "./modules/difference";
+import Forms from "./modules/forms";
 
 
 
@@ -18,7 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const feedSlider = new SliderMini({container: '.feed__slider', next: '.feed__slider .slick-next', prev: '.feed__slider .slick-prev',activeClass: 'feed__item-active'});
     feedSlider.init();
 
-    new Difference('.officerold', '.officernew', '.officer__card-item').init()
+    new Difference('.officerold', '.officernew', '.officer__card-item').init();
+
+    new Forms('form').init();
     
 
     const player = new Player('.play', '.overlay');
