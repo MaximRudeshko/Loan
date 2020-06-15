@@ -10,6 +10,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const slider = new MainSlider({container: '.page', btns: '.next'});
     slider.render();
 
+    const modulePageslider = new MainSlider({container: '.moduleapp', btns: '.next'})
+    modulePageslider.render()
+
     const showUpSlider = new SliderMini({container: '.showup__content-slider',next: '.showup__next',prev: '.showup__prev', activeClass: 'card-active', animated: true});
     showUpSlider.init();
 

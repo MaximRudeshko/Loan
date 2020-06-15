@@ -20,11 +20,20 @@ export default class Player{
 
 
     bindCloseBtn(){
-        this.close.addEventListener('click', () => {
-            this.modal.style.display = 'none';
-            this.player.stopVideo();
+        this.close.addEventListener('click', (e) => {
+                this.modal.style.display = 'none';
+                this.player.stopVideo();
+        })
+
+        document.querySelector('.overlay').addEventListener('click', e => {
+            if (e.target == document.querySelector('.overlay')){
+                this.modal.style.display = 'none';
+                this.player.stopVideo();
+            }
         })
     }
+
+    
 
     createPlayer(url){
         this.player = new YT.Player('frame', {
