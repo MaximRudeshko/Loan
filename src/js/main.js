@@ -27,6 +27,6 @@ window.addEventListener('DOMContentLoaded', () => {
     new Forms('form').init();
     
 
-    const player = new Player('.play', '.overlay');
-    player.init()
+    new Player('.play', '.overlay').init()
+    new Player('.module__video-item .play', '.overlay').init()
 })
