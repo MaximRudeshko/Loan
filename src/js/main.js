@@ -3,6 +3,8 @@ import SliderMini from './modules/sliders/slider-mini';
 import Player from "./modules/player";
 import Difference from "./modules/difference";
 import Forms from "./modules/forms";
+import ShowInfo from "./modules/showInfo";
+import Download from "./modules/download";
 
 
 
@@ -28,5 +30,9 @@ window.addEventListener('DOMContentLoaded', () => {
     
 
     new Player('.play', '.overlay').init()
-    new Player('.module__video-item .play', '.overlay').init()
+    new Player('.module__video-item .play', '.overlay').init();
+
+    new ShowInfo('.plus').bindTriggers();
+
+    new Download('.download').bindTriggers();
 })
